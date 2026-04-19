@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+supabase
+python-dotenv
+groq
+pdfplumber
+python-docx
+pydantic
+python-multipart
+reportlab
+duckduckgo_search
+xhtml2pdf
