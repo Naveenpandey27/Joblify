@@ -28,7 +28,7 @@ export default function ResumeOptimizer() {
             const formData = new FormData()
             formData.append("file", selectedFile)
 
-            const response = await fetch("http://localhost:8000/api/resume/upload", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/resume/upload`, {
                 method: "POST",
                 body: formData,
             })

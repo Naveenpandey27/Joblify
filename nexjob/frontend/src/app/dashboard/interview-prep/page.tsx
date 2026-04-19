@@ -35,7 +35,7 @@ export default function InterviewPrep() {
             const formData = new URLSearchParams()
             formData.append("job_description", jobDescription)
 
-            const response = await fetch("http://localhost:8000/api/resume/interview-questions", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/resume/interview-questions`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",

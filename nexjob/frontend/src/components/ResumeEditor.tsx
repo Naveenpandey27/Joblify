@@ -44,7 +44,7 @@ export function ResumeEditor({ initialText, onGenerate }: ResumeEditorProps) {
             formData.append("resume_text", initialText)
             formData.append("job_description", jobDescription)
 
-            const response = await fetch("http://localhost:8000/api/resume/suggestions", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/resume/suggestions`, {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: formData.toString()

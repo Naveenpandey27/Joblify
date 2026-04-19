@@ -26,7 +26,7 @@ export default function CoverLetterGenerator() {
             const formData = new FormData()
             formData.append("file", selectedFile)
 
-            const response = await fetch("http://localhost:8000/api/resume/upload", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/resume/upload`, {
                 method: "POST",
                 body: formData,
             })
@@ -61,7 +61,7 @@ export default function CoverLetterGenerator() {
             formData.append("resume_text", resumeText)
             formData.append("job_description", jobDescription)
 
-            const response = await fetch("http://localhost:8000/api/resume/cover-letter", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/resume/cover-letter`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",

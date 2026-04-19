@@ -130,7 +130,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ job_id: st
     useEffect(() => {
         const fetchJob = async () => {
             try {
-                const res = await fetch(`http://localhost:8000/api/job-listings/${job_id}`)
+                const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/job-listings/${job_id}`)
                 if (!res.ok) throw new Error("Job not found or cache expired.")
                 setJob(await res.json())
             } catch (err: any) {
@@ -166,7 +166,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ job_id: st
             formData.append("file", resumeFile)
             formData.append("job_description", job.description || `${job.title} at ${job.company}`)
 
-            const res = await fetch("http://localhost:8000/api/job-listings/match-resume", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/job-listings/match-resume`, {
                 method: "POST",
                 body: formData,
             })
@@ -192,7 +192,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ job_id: st
             formData.append("file", resumeFile)
             formData.append("job_description", `${job.title} at ${job.company}. ${job.description}`)
 
-            const res = await fetch("http://localhost:8000/api/job-listings/cover-letter", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/job-listings/cover-letter`, {
                 method: "POST",
                 body: formData,
             })

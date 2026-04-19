@@ -72,7 +72,7 @@ export default function Home() {
       // 1. Upload resume
       const uploadForm = new FormData()
       uploadForm.append("file", file)
-      const uploadRes = await fetch("http://localhost:8000/api/resume/upload", {
+      const uploadRes = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/resume/upload`, {
         method: "POST",
         body: uploadForm,
       })
@@ -83,7 +83,7 @@ export default function Home() {
       const optimizeForm = new URLSearchParams()
       optimizeForm.append("resume_text", resumeText)
       optimizeForm.append("job_description", jobDescription)
-      const optimizeRes = await fetch("http://localhost:8000/api/resume/optimize", {
+      const optimizeRes = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/resume/optimize`, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: optimizeForm.toString(),
@@ -119,7 +119,7 @@ export default function Home() {
       const form = new URLSearchParams()
       form.append("optimized_text", optimizedResume)
       form.append("format", format)
-      const res = await fetch("http://localhost:8000/api/resume/download", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/resume/download`, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: form.toString(),
@@ -346,7 +346,7 @@ export default function Home() {
                     try {
                       const uploadForm = new FormData()
                       uploadForm.append("file", f)
-                      const uploadRes = await fetch("http://localhost:8000/api/resume/upload", {
+                      const uploadRes = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/resume/upload`, {
                         method: "POST",
                         body: uploadForm,
                       })
