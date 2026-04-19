@@ -154,7 +154,7 @@ export default function DashboardHome() {
             {/* 1. Welcome Header */}
             <header className="border-b border-slate-800 pb-6">
                 <h1 className="text-4xl font-bold text-white tracking-tight">Welcome back, {userName}</h1>
-                <p className="text-xl text-slate-400 mt-2">Let's prepare your next job application.</p>
+                <p className="text-xl text-slate-400 mt-2">Let&apos;s prepare your next job application.</p>
             </header>
 
             {/* 2. Usage Statistics Section */}
